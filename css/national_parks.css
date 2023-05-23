@@ -1,0 +1,16 @@
+/*THIS CSS IS FOR THE NATIONAL PARKS*/
+
+main {
+    background-image: url("/images/nationalparksbg.png");
+    background-size: cover;
+}
+
+header img {
+    width: 45%;
+}
+
+
+div.text-center img {
+    max-width: 100%;
+    height: auto;
+}

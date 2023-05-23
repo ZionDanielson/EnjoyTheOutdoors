@@ -1,7 +1,16 @@
+/*THIS CSS IS FOR THE MAIN PAGE*/
+
 main {
-    background-image: url("images/homebg.png");
-    /*background-size: cover;*/
+    background-image: url("/images/bghome.png");
+    background-size: cover;
+}
+
+header img {
+    width: 45%;
+}
 
 
-    background-color: blue;
-  }
+div.text-center img {
+    max-width: 100%;
+    height: auto;
+}

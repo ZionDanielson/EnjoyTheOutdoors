@@ -7,7 +7,7 @@
     <title>National Parks</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/national_parks.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,17 +27,18 @@
 
                     <!--NAV BAR LINKS/PAGES-->
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <!--ADD LOGO RIGHT HERE-->
-                        <li><a href="index.html" class="nav-link px-2 link-body-emphasis">HOME</a></li>
-                        <li><a href="national_parks.html" class="nav-link px-2 link-secondary">NATIONAL PARKS</a></li>
-                        <li><a href="mountain_info.html" class="nav-link px-2 link-body-emphasis">MOUNTAINS</a></li>
-                        <li><a href="#" class="nav-link px-2 link-body-emphasis">ABOUT US</a></li>
+                      
+                        <li><a href="index.html" class="nav-link px-2"><img src="images/logo.png" alt="logo"></a></li>
+                        <li><a href="index.html" class="nav-link px-4 mt-2 text-white fw-bold">HOME</a></li>
+                        <li><a href="national_parks.html" class="nav-link px-4 mt-2 link-warning fw-bold">NATIONAL PARKS</a></li>
+                        <li><a href="mountain_info.html" class="nav-link px-4 mt-2 text-white fw-bold">MOUNTAINS</a></li>
+                        <li><a href="#" class="nav-link px-4 mt-2 text-white fw-bold">ABOUT US</a></li>
                     </ul>
 
                     <!--SEARCH BAR-->
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                         <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-                        <!--ADD SEARCH BUTTON HERE-->
+                        <button type="button" class="btn btn-dark btn-md px-4 gap-3">Search</button>
                     </form>
 
                     </ul>
@@ -48,7 +49,7 @@
 
         <!--LARGE IMAGE: Includes the Mts. & the HeroText-->
         <div class="px-4 py-5 my-5 text-center">
-            <!-- <img src="images/hero.png"> -->
+            <img src="images/hero2.png" alt="hero">
             <!-- <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
             <h1 class="display-5 fw-bold text-body-emphasis">Centered hero</h1>
             <div class="col-lg-6 mx-auto">
@@ -64,15 +65,15 @@
     <!--SECTION A: Search For National Parks, Includes 2 Dropdowns-->
 
     <section class="container">
-        <!--<div id="searchByParkTypeBtn" class="row btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >-->
+        <!--DISCARD FOR NOW...<div id="searchByParkTypeBtn" class="row btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >-->
 
         <!--"LOCATION" - DROPDOWN BUTTON 1-->
-        <div id="searchByLocation" class="row">
+        <div id="theLocationsDropdownRow" class="row">
 
             <div class="col">
-                <label for="searchByLocation">Search by location:</label>
-                <select class="form-control" id="selectLocationDropdown">
-                    <option>Select one</option>
+                <label for="theLocationsDropdownRow">Search by location:</label>
+                <select title="National Parks Locations Dropdown" class="form-select" id="selectLocationDropdown" alt="locationsdropdown">
+                    <option>Select a location</option>
                 </select>
             </div>
 
@@ -82,9 +83,9 @@
         <div id="searchByParkType" class="row">
 
             <div class="col">
-                <label for="selectParkType">Search by park type:</label>
-                <select class="form-control" id="selectParkTypeDropdown">
-
+                <label for="selectParkType">Choose a park:</label>
+                <select title="National Parks Dropdown" class="form-select" id="selectParkTypeDropdown" alt="parksdropdown">
+                    <option>Select a park</option>
                 </select>
             </div>
 
@@ -92,25 +93,89 @@
 
     </section>
 
-    <!--NATIONAL PARKS CARDS-->
-    <div class="container">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+    <!--NATIONAL PARKS CARD:
+
+        So we are jumping over here to the card section. This is a card I 
+        grabbed from boostrap. We need to format this card and set it up so that
+        it can display all of the park information given to us with the array.
+        
+        The card needs to display the follwing information:
+        LocationID: "ABLI",
+        LocationName: "Abraham Lincoln Birthplace National Historical Park",
+        Address: "2995 Lincoln Farm Road",
+        City: "Hodgenville",
+        State: "Kentucky",
+        ZipCode: 42748,
+        Phone: "(270) 358-3137",
+        Fax: "(270) 358-3874",
+        Latitude: 37.535671,
+        Longitude: -85.7340637,
+        Location: {coordinates: [-85.7340637, 37.53567], type: "Point"}
+
+        Note: Every element that will be altered will need to have an id so
+        that it may be retrieved from JavaScript.
+                                                                            -->
+    
+        <div id="nationalParksInfoCard" class="container">
+                      <!-- The card is in a container with the
+                           ID tag of "nationalParksInfoCard" -->
+                      
+        <div class="card" style="width: 18rem;"> 
+                      <!-- This controls the sizing of the card -->
+
+        <img id="parkImage" src="..." class="card-img-top" alt="Image of park">
+                      <!-- This is the image at the top of the card -->
+        
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
+                      <!-- Below is all the elements inside the card
+                           body -->
+
+          <h3 id="LocationName" class="LocationName">Park Title</h3>
+                      <!-- The first element is the TITLE of the park-->
+          
+          <p id="parkAddress" class="card-text">Quick summary text to build on the card title and make up the bulk of the card's content.</p>
+                      <!-- The second element is the ADDRESS in
+                           paragraph form-->
+
+         </div>
+                      <!-- Below this divide is an unordered list of
+                           elements -->
+
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
+                      <!-- The class in this unordered list has styling
+                           properties-->
+
+          <li id="parkLocationID" class="list-group-item">Location ID: ALBI</li>                 
+          <li id="parkPhone"      class="list-group-item">Phone: 000-000-0000</li>
+          <li id="parkFax"        class="list-group-item">Fax: 000-000-0000</li>
+          <li id="parkLatitude"   class="list-group-item">Latitude: 37.535671</li>
+          <li id="parkLongitude"  class="list-group-item">Longitude: -85.7340637</li>
+          <li id="parkLocation"   class="list-group-item">Location: coordinates:[-85.7340637, 37.53567], type: "Point"</li>
+                      <!-- These 5 lines of code are the list items in
+                           the unordered list -->
+
         </ul>
+                      <!-- Unordered list closing tag -->
+
         <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+                      <!-- This is another divide in the card -->
+
+          <a href="#" class="card-link">View Park</a>
+          <a href="#" class="card-link">Add To Favorites</a>
+                      <!-- These are two links on the card. when 
+                           clicked they will take you to the specified
+                           href -->
+
         </div>
-      </div>
-</div>
+                      <!-- Link section closing tag -->
+
+        </div>
+                      <!-- full card closing tag -->
+
+        </div> 
+                      <!-- container closing tag -->
+
+
 
 
 
