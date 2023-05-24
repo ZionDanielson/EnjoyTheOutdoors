@@ -81,7 +81,7 @@ window.onload = function () {   //When page loads we want the two functions belo
 
    selectLocationDropdown.onchange = function() { // When a state is selected it 
                                                   // will initiate this function.
-    // aStateHasBeenSelected();
+    aStateHasBeenSelected();
     showParkTypeDropDown();
  }
 
@@ -289,11 +289,13 @@ function showNationalParkInfoCard() {
 
     function aStateHasBeenSelected() {
     
-        if (selectLocationDropdown.value !== "") {  
-                                                    // The park type drop down
-                                                    // will show when the
-        showParkTypeDropDown();                     // location dropdown is
-                                                    // changed.
+        if (selectLocationDropdown.value !== "") {  // If the .value is not (!==) an
+                                                    // empty string then it will 
+                                                    // move forward with what's
+                                                    //inside the brackets.
+                                                    
+        showParkTypeDropDown();                     
+                                                    
       
         const selectedState = selectLocationDropdown.value; //This is the chosen state
   
@@ -302,13 +304,35 @@ function showNationalParkInfoCard() {
                                                     // Here we are filtering the
                                                     // national parks array based on
                                                     // the selected state/location
-    
-        console.log(`These are all of the parks in ${selectedState}`)                                          
-       
-        //                                             function                                            
-        // selectParkTypeDropdown.onchange = function(){
 
-        //                                             }
+        console.log(`These are all of the parks in ${selectedState}: ${parks}`); 
+
+
+
+        const selectedParkType = selectParkTypeDropdown.value; //This is the chosen state                                      
+        
+
+
+        //FILTERING THROUGH DIFFERENT PARKS:
+        "National Park",
+    "National Monument",
+    "Recreation Area",
+    "Scenic Trail",
+    "Battlefield",
+    "Historic",
+    "Memorial",
+    "Preserve",
+    "Island",
+    "River",
+    "Seashore",
+    "Trail",
+    "Parkway"
+
+        const NationalPark = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType);
+
+        //console.log(specificPark);
+        console.log(`These are all of the parks in ${selectedParkType}`);                                     
+    
       
       if (parks.length > 0) {
 
