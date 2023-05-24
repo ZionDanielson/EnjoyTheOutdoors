@@ -310,15 +310,54 @@ function showNationalParkInfoCard() {
                                                     // the user chose and what parks
                                                     // are all in that state.
         
-                                                    // AFTER THAT...
-                                                    // the user selects a state:
-        const selectedParkType = selectParkTypeDropdown.value; //This is the chosen state
+        // THE USER WILL THEN SELECT A PARK TYPE:
         
-        //let theNational = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType)                                            
-        
+        selectParkTypeDropdown.onchange = function () {
+                                                    // This event will innitiate the    
+            aParkTypeHasBeenSelected();             // next function.   
 
+        }                                                                                                                      
+        
         }
     }
+
+
+
+
+
+    // BELOW IS THE NEXT FUNCTION
+    // This function will be for filtering through the parks in that state and will
+    // match the user with the parks that fall under the park type they chose from the
+    // Park types Dropdown. 
+
+
+    function aParkTypeHasBeenSelected() {
+
+                                                    // SO FIRST...
+                                                    // the user selects a state:
+
+        const selectedParkType = selectParkTypeDropdown.value; //This is the chosen state
+
+        // Here, I'm just defining a few variables for this function:
+        const selectedState = selectLocationDropdown.value; //This is the chosen state
+        const parks = nationalParksArray.filter(park => park.State === selectedState);
+
+        const nationalParks = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType);
+                                                    // The computer will search through the
+                                                    // array of 
+                                                    // parks' (arrays w/ parks in the state
+                                                    // the user selected) and find the
+                                                    // objects that include a string with a
+                                                    // word that matches one of the park
+                                                    // types in the "parkTypesArray"
+                           
+        console.log(`These are the ${selectedParkType} parks in ${selectedState}: ${nationalParks}`);                                           
+                                                    
+    }
+                                                   
+        
+        
+        
 
 
 //         //FILTERING THROUGH DIFFERENT PARKS:
