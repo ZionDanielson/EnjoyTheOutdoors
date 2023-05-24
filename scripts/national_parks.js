@@ -18,8 +18,38 @@ const selectParkTypeDropdown       = document.getElementById("selectParkTypeDrop
 const parkDropDownSectionWithLabel = document.getElementById("searchByParkType");       // ID for the <div> section that holds
                                                                                         // the park dropdown and it's label.
 
+
 let   nationalParksInfoCard        = document.getElementById("nationalParksInfoCard");  // This is the National Parks Info Card
                                                                                         // tag from it's container in HTML
+
+
+//define park name element id in national park html
+const parkName = document.getElementById("LocationName");
+
+//define park details element id in national park html
+const parkAddress = document.getElementById("parkAddress");
+
+//define park  element id in national park html
+const parkId = document.getElementById("parkId");
+
+//define park city element id in national park html
+const parkLocationID = document.getElementById("parkLocationID");
+
+//define park state element id in national park html
+const parkPhone = document.getElementById("parkPhone");
+
+//define park zip code element id in national park html
+const parkFax = document.getElementById("parkFax");
+
+//define park fax element id in national park html 
+const parkLatitude = document.getElementById("parkLatitude");
+
+
+//define park fax element id in national park html 
+const parkLongitude = document.getElementById("parkLongitude");
+
+//define park fax element id in national park html 
+const parkLocation = document.getElementById("parkLocation");
                                                                                     
                                                                              
 
@@ -28,16 +58,9 @@ let   nationalParksInfoCard        = document.getElementById("nationalParksInfoC
 
 
 // When page loads init the functions...
-window.onload = function () { //When page loads we want the two functions below
-                              // to be evoked...
+window.onload = function () {   //When page loads we want the two functions below
+                                // to be evoked...
 
-    selectLocationDropdown.onchange = showParkTypeDropDown; 
-                              // When the location is chosen from the locations
-                              // dropdown it will call the function 
-                              // showP arkTypeDropDown() to show the Park Types
-                              // Dropdown.
-
-    // selectParkTypeDropdown.onchange = onActivitySelectChange;
 
    addLocationsToTheDropdown(); // Initiate first function - this function adds
                                 // the array of locations to the dropdown as soon
@@ -56,7 +79,16 @@ window.onload = function () { //When page loads we want the two functions below
                                 // hides the Park Info card drop down as soon as
                                 // the page loads.
 
+   selectLocationDropdown.onchange = function() { // When a state is selected it 
+                                                  // will initiate this function.
+    // aStateHasBeenSelected();
+    showParkTypeDropDown();
+ }
+
+   
 }
+
+
 
 
 
@@ -87,6 +119,7 @@ function addLocationsToTheDropdown() { // this function will add locations to th
                                        // drop down
 
     console.log(`We have made it inside the locations dropdown`);
+
 
        for (let location of locationsArray) { // We are first looping through the
                                               // provided array of information
@@ -206,7 +239,7 @@ function showParkTypeDropDown() {
     selectParkTypeDropdown.style.display = "block";  // this adjusts the style
                                                      // display of the element and
                                                      // shows the element.
-    
+    parkDropDownSectionWithLabel.style.display = "block";
 
     console.log(`The park types dropdown is now shown`);
                                                      // This is displaying
@@ -247,45 +280,79 @@ function showNationalParkInfoCard() {
 }
  
 
+  
+
+
+// THE FUNCTION BELOW WILL OCCUR WHEN IT IS INITIATED BY THE EVENT CHANGE.
+// When the location dropdown is changed or the user chooses on a state,
+// the Park Type dropdown will show and the display the parks in that state.
+
+    function aStateHasBeenSelected() {
+    
+        if (selectLocationDropdown.value !== "") {  
+                                                    // The park type drop down
+                                                    // will show when the
+        showParkTypeDropDown();                     // location dropdown is
+                                                    // changed.
+      
+        const selectedState = selectLocationDropdown.value; //This is the chosen state
+  
+      
+        const parks = nationalParksArray.filter(park => park.State === selectedState);
+                                                    // Here we are filtering the
+                                                    // national parks array based on
+                                                    // the selected state/location
+    
+        console.log(`These are all of the parks in ${selectedState}`)                                          
+       
+        //                                             function                                            
+        // selectParkTypeDropdown.onchange = function(){
+
+        //                                             }
+      
+      if (parks.length > 0) {
+
+        for (let selectedPark of parks) {
+
+            parkName.innerHTML       = selectedPark.LocationName;  
+            parkAddress.innerHTML    = selectedPark.Address;
+            //parkId.innerHTML         = selectedPark.LocationID;
+            parkLocationID.innerHTML = selectedPark.Location;
+            parkPhone.innerHTML      = selectedPark.Phone;
+            parkFax.innerHTML        = selectedPark.Fax;
+            parkLatitude.innerHTML   = selectedPark.Latitude;
+            parkLongitude.innerHTML  = selectedPark.Longitude;
+
+        }
+        
+        showNationalParkInfoCard(); // This function initiates showing the national
+                                    // park info card
+      }
+    }
+  };
+  //Now, when you change the selected location in the dropdown, it will show the park type dropdown, filter the national parks based on the selected location, and display the park information in the respective HTML elements.
+  
+  
+  
+  
+  
+  
+  
 
 
 
-// NEXT WHAT ELSE DO WE NEED? WE NEED THE CARD THAT WILL BE DISPLAYED WHEN THE
-// FUNCTION whenALocationIsClicked() is ran/complete.
-// This will first be set up in the HTML. You need to create a card template.
-// Go do that...
 
 
 
 
 
-// WHEN A LOCATION IS CLICKED/CHOSEN IN THE LOCATION DROPDOWN WE WANT THE PARK
-// DROPDOWN TO SHOW.
-// HOW DO WE DO THAT?
-// WE NEED TO WIRE UP AN "ON CHANGE" EVENT ..Well what does that loolk like?
 
 
 
 
-//Below is 
 
 
 
 
-   // showParkTypeDropDown() // evoking this function
-    //addLocationsToTheDropdown()  ; // after the for loop we are evoking/initiating this next function
 
 
-//function showParkTypeDropDown() {
-  // variable is declared globally "selectParkTypeDropDown"
-   
-   //selectParkTypeDropdown.onclick = selectLocationDropdown.style.display = none;  // wire up an onclick event
-
-    // 
-//}
-
-
-
-//function whenLocationIsSelected() {
-    //Show Park Types DropDown
-//}
