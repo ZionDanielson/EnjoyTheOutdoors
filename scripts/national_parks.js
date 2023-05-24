@@ -342,18 +342,23 @@ function showNationalParkInfoCard() {
         const selectedState = selectLocationDropdown.value; //This is the chosen state
         const parks = nationalParksArray.filter(park => park.State === selectedState);
 
-        const nationalParks = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType);
+        const nationalParks = parks.filter(park => park.LocationName.includes(selectedParkType));
+
                                                     // The computer will search through the
-                                                    // array of 
-                                                    // parks' (arrays w/ parks in the state
-                                                    // the user selected) and find the
-                                                    // objects that include a string with a
-                                                    // word that matches one of the park
-                                                    // types in the "parkTypesArray"
+                                                    // array of parks' (arrays w/ parks
+                                                    // in the state the user selected) and
+                                                    // find the objects that include a
+                                                    // string with a word that matches one
+                                                    // of the park types in the
+                                                    // "parkTypesArray"                                        
                            
         console.log(`These are the ${selectedParkType} parks in ${selectedState}: ${nationalParks}`);                                           
-                                                    
+                   
+        // NOW THAT WE HAVE THE NATIONAL PARKS RESULTS THAT HAVE BEEN FILTERED BY THE STATE
+
+        function 
     }
+
                                                    
         
         
