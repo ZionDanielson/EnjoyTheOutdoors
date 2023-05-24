@@ -22,34 +22,25 @@ const parkDropDownSectionWithLabel = document.getElementById("searchByParkType")
 let   nationalParksInfoCards        = document.getElementById("nationalParksInfoCards");  // This is the National Parks Info Card
                                                                                         // tag from it's container in HTML
 
+// THESE ARE THE VARIABLES FOR THE CARDS:
 
-//define park name element id in national park html
-const parkName = document.getElementById("LocationName");
+const parkName       = document.getElementById("LocationName");   // ID for park title
 
-//define park details element id in national park html
-const parkAddress = document.getElementById("parkAddress");
+const parkAddress    = document.getElementById("parkAddress");    // ID for park address
 
-//define park  element id in national park html
-const parkId = document.getElementById("parkId");
+// const parkId         = document.getElementById("parkId"); 
 
-//define park city element id in national park html
-const parkLocationID = document.getElementById("parkLocationID");
+const parkLocationID = document.getElementById("parkLocationID"); // ID for park location id
 
-//define park state element id in national park html
-const parkPhone = document.getElementById("parkPhone");
+const parkPhone      = document.getElementById("parkPhone");      // ID for park phone
 
-//define park zip code element id in national park html
-const parkFax = document.getElementById("parkFax");
+const parkFax        = document.getElementById("parkFax");        // ID for park fax
 
-//define park fax element id in national park html 
-const parkLatitude = document.getElementById("parkLatitude");
+const parkLatitude   = document.getElementById("parkLatitude");   // ID for park latitude
 
+const parkLongitude  = document.getElementById("parkLongitude");  // ID for park longitude
 
-//define park fax element id in national park html 
-const parkLongitude = document.getElementById("parkLongitude");
-
-//define park fax element id in national park html 
-const parkLocation = document.getElementById("parkLocation");
+const parkLocation   = document.getElementById("parkLocation");   // ID for park location
                                                                                     
                                                                              
 
@@ -383,15 +374,7 @@ function showNationalParkInfoCard() {
                                                                              // the cards.
         
         // LET'S CREATE THE CARDS:
-        const card = document.createElementget("div");     // First we must create an
-                                                           //element.
-        
-        for (let parksOutputted of nationalParks) {        // We are looping through the 
-                                                           // "nationalParks".
-
-            const card = document.createElementget("div"); // We must create the element.
             
-            card.classList.appendChild("card");
                 
                             parkName.innerHTML       = selectedPark.LocationName;  
                             parkAddress.innerHTML    = selectedPark.Address;
@@ -412,4 +395,3 @@ function showNationalParkInfoCard() {
                     console.log(`The National Park Info Card is displayed on the screen`);
                 }
 
-            }
