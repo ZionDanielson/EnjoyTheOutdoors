@@ -291,7 +291,7 @@ function showNationalParkInfoCard() {
     function aStateHasBeenSelected() {
     
         if (selectLocationDropdown.value !== "") {  // If the .value is not (!==) an
-                                                    // empty string, meaning it has
+            showParkTypeDropDown();                 // empty string, meaning it has
         // So if this value has a state OR          // a state, then it will 
         // a state is chosen by the user we         // move forward with what's
         // wiill proceed with the if statement      // inside the brackets.
@@ -306,79 +306,60 @@ function showNationalParkInfoCard() {
                                                     // the selected state/location
 
         console.log(`These are all of the parks in ${selectedState}: ${parks}`); 
-
-        }
-
-
-
-        const selectedParkType = selectParkTypeDropdown.value; //This is the chosen state                                      
+                                                    // This will show us what state
+                                                    // the user chose and what parks
+                                                    // are all in that state.
+        
+                                                    // AFTER THAT...
+                                                    // the user selects a state:
+        const selectedParkType = selectParkTypeDropdown.value; //This is the chosen state
+        
+        //let theNational = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType)                                            
         
 
+        }
+    }
 
-        //FILTERING THROUGH DIFFERENT PARKS:
-        "National Park",
-    "National Monument",
-    "Recreation Area",
-    "Scenic Trail",
-    "Battlefield",
-    "Historic",
-    "Memorial",
-    "Preserve",
-    "Island",
-    "River",
-    "Seashore",
-    "Trail",
-    "Parkway"
 
-        const NationalPark = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType);
+//         //FILTERING THROUGH DIFFERENT PARKS:
+//         "National Park",
+//     "National Monument",
+//     "Recreation Area",
+//     "Scenic Trail",
+//     "Battlefield",
+//     "Historic",
+//     "Memorial",
+//     "Preserve",
+//     "Island",
+//     "River",
+//     "Seashore",
+//     "Trail",
+//     "Parkway"
 
-        //console.log(specificPark);
-        console.log(`These are all of the parks in ${selectedParkType}`);                                     
+//         const NationalPark = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType);
+
+//         //console.log(specificPark);
+//         console.log(`These are all of the parks in ${selectedParkType}`);                                     
     
       
-      if (parks.length > 0) {
+//       if (parks.length > 0) {
 
-        for (let selectedPark of parks) {
+//         for (let selectedPark of parks) {
 
-            parkName.innerHTML       = selectedPark.LocationName;  
-            parkAddress.innerHTML    = selectedPark.Address;
-            //parkId.innerHTML         = selectedPark.LocationID;
-            parkLocationID.innerHTML = selectedPark.Location;
-            parkPhone.innerHTML      = selectedPark.Phone;
-            parkFax.innerHTML        = selectedPark.Fax;
-            parkLatitude.innerHTML   = selectedPark.Latitude;
-            parkLongitude.innerHTML  = selectedPark.Longitude;
+//             parkName.innerHTML       = selectedPark.LocationName;  
+//             parkAddress.innerHTML    = selectedPark.Address;
+//             //parkId.innerHTML         = selectedPark.LocationID;
+//             parkLocationID.innerHTML = selectedPark.Location;
+//             parkPhone.innerHTML      = selectedPark.Phone;
+//             parkFax.innerHTML        = selectedPark.Fax;
+//             parkLatitude.innerHTML   = selectedPark.Latitude;
+//             parkLongitude.innerHTML  = selectedPark.Longitude;
 
-        }
+//         }
         
-        showNationalParkInfoCard(); // This function initiates showing the national
-                                    // park info card
-      }
-    }
-  };
+//         showNationalParkInfoCard(); // This function initiates showing the national
+//                                     // park info card
+//       }
+//     }
+//   };
   //Now, when you change the selected location in the dropdown, it will show the park type dropdown, filter the national parks based on the selected location, and display the park information in the respective HTML elements.
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
