@@ -19,7 +19,7 @@ const parkDropDownSectionWithLabel = document.getElementById("searchByParkType")
                                                                                         // the park dropdown and it's label.
 
 
-let   nationalParksInfoCard        = document.getElementById("nationalParksInfoCard");  // This is the National Parks Info Card
+let   nationalParksInfoCards        = document.getElementById("nationalParksInfoCards");  // This is the National Parks Info Card
                                                                                         // tag from it's container in HTML
 
 
@@ -78,6 +78,8 @@ window.onload = function () {   //When page loads we want the two functions belo
    hideNationalParkInfoCard();  // Hide Park Info Card - this function
                                 // hides the Park Info card drop down as soon as
                                 // the page loads.
+
+  
 
    selectLocationDropdown.onchange = function() { // When a state is selected it 
                                                   // will initiate this function.
@@ -253,7 +255,7 @@ function showParkTypeDropDown() {
 
 function hideNationalParkInfoCard() {
 
-    nationalParksInfoCard.style.display = "none";   // this adjusts the style
+    nationalParksInfoCards.style.display = "none";   // this adjusts the style
                                                     // display of the element and
                                                     // hides the element.
 
@@ -269,7 +271,7 @@ function hideNationalParkInfoCard() {
 
 function showNationalParkInfoCard() {
 
-    nationalParksInfoCard.style.display = "block"   // this adjusts the style
+    nationalParksInfoCards.style.display = "block"   // this adjusts the style
                                                     // display of the element and
                                                     // shows the element.
 
@@ -355,55 +357,59 @@ function showNationalParkInfoCard() {
         console.log(`These are the ${selectedParkType} parks in ${selectedState}: ${nationalParks}`);                                           
                    
         // NOW THAT WE HAVE THE NATIONAL PARKS RESULTS THAT HAVE BEEN FILTERED BY THE STATE
+        // AND THE PARK TYPE, WE NOW WANT TO DISPLAY THIS INFORMATION IN A CARD
 
-        function 
-    }
+        // Here, let's call a the function that will create the card and display once finished:
 
-                                                   
+        createNationalParkInfoCard()                
+
+
+        // BELOW IS THE FUNCTION WE WILL USE TO CREATE THE CARD:
+
+
+        function createNationalParkInfoCard(){
+
+            if (nationalParks.length > 0) {
+
+                        for (let selectedPark of nationalParks) {
+                            
+        // WE WANT TO DISPLAY MULTIPLE CARDS INSIDE OF OUR CONTAINER
+
+        // Declaring variables we plan on interacting with...
+        const container = document.getElementById("nationalParksInfoCards"); // This is the 
+                                                                             // container
+                                                                             // that will
+                                                                             // hold all of
+                                                                             // the cards.
         
+        // LET'S CREATE THE CARDS:
+        const card = document.createElementget("div");     // First we must create an
+                                                           //element.
         
-        
+        for (let parksOutputted of nationalParks) {        // We are looping through the 
+                                                           // "nationalParks".
 
+            const card = document.createElementget("div"); // We must create the element.
+            
+            card.classList.appendChild("card");
+                
+                            parkName.innerHTML       = selectedPark.LocationName;  
+                            parkAddress.innerHTML    = selectedPark.Address;
+                            //parkId.innerHTML       = selectedPark.LocationID;
+                            parkLocationID.innerHTML = selectedPark.Location;
+                            parkPhone.innerHTML      = selectedPark.Phone;
+                            parkFax.innerHTML        = selectedPark.Fax;
+                            parkLatitude.innerHTML   = selectedPark.Latitude;
+                            parkLongitude.innerHTML  = selectedPark.Longitude;
+                
+                        }
+                        
+                        showNationalParkInfoCard(); // This function initiates showing the national
+                                                    // park info card
+                      }
+                    }
 
-//         //FILTERING THROUGH DIFFERENT PARKS:
-//         "National Park",
-//     "National Monument",
-//     "Recreation Area",
-//     "Scenic Trail",
-//     "Battlefield",
-//     "Historic",
-//     "Memorial",
-//     "Preserve",
-//     "Island",
-//     "River",
-//     "Seashore",
-//     "Trail",
-//     "Parkway"
+                    console.log(`The National Park Info Card is displayed on the screen`);
+                }
 
-//         const NationalPark = parks.filter(park => park.LocationName.includes(parkTypesArray) === selectedParkType);
-
-//         //console.log(specificPark);
-//         console.log(`These are all of the parks in ${selectedParkType}`);                                     
-    
-      
-//       if (parks.length > 0) {
-
-//         for (let selectedPark of parks) {
-
-//             parkName.innerHTML       = selectedPark.LocationName;  
-//             parkAddress.innerHTML    = selectedPark.Address;
-//             //parkId.innerHTML         = selectedPark.LocationID;
-//             parkLocationID.innerHTML = selectedPark.Location;
-//             parkPhone.innerHTML      = selectedPark.Phone;
-//             parkFax.innerHTML        = selectedPark.Fax;
-//             parkLatitude.innerHTML   = selectedPark.Latitude;
-//             parkLongitude.innerHTML  = selectedPark.Longitude;
-
-//         }
-        
-//         showNationalParkInfoCard(); // This function initiates showing the national
-//                                     // park info card
-//       }
-//     }
-//   };
-  //Now, when you change the selected location in the dropdown, it will show the park type dropdown, filter the national parks based on the selected location, and display the park information in the respective HTML elements.
+            }
