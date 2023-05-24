@@ -284,19 +284,19 @@ function showNationalParkInfoCard() {
 
 
 // THE FUNCTION BELOW WILL OCCUR WHEN IT IS INITIATED BY THE EVENT CHANGE.
-// When the location dropdown is changed or the user chooses on a state,
+// When the location dropdown is changed, the second dropdown will show.
+// The user will then choose a park type from the second dropdown.
 // the Park Type dropdown will show and the display the parks in that state.
 
     function aStateHasBeenSelected() {
     
         if (selectLocationDropdown.value !== "") {  // If the .value is not (!==) an
-                                                    // empty string then it will 
-                                                    // move forward with what's
-                                                    //inside the brackets.
+                                                    // empty string, meaning it has
+        // So if this value has a state OR          // a state, then it will 
+        // a state is chosen by the user we         // move forward with what's
+        // wiill proceed with the if statement      // inside the brackets.
+                                                                        
                                                     
-        showParkTypeDropDown();                     
-                                                    
-      
         const selectedState = selectLocationDropdown.value; //This is the chosen state
   
       
@@ -306,6 +306,8 @@ function showNationalParkInfoCard() {
                                                     // the selected state/location
 
         console.log(`These are all of the parks in ${selectedState}: ${parks}`); 
+
+        }
 
 
 
