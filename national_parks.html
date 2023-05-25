@@ -68,24 +68,23 @@
         <!--DISCARD FOR NOW...<div id="searchByParkTypeBtn" class="row btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >-->
 
         <!--"LOCATION" - DROPDOWN BUTTON 1-->
-        <div id="theLocationsDropdownRow" class="row mt-2">
+        <div  class="row mt-2">
 
             <div class="col">
-                <label for="theLocationsDropdownRow">Location:</label>
-                <select title="National Parks Locations Dropdown" class="form-select" id="selectLocationDropdown" alt="locationsdropdown">
-                    <option>Select a location</option>
+                <select title="National Parks Locations Dropdown" class="form-select" id="theLocationsDropdown" alt="locationsdropdown">
+                    <option>Choose a location</option>
                 </select>
             </div>
 
         </div>
 
         <!--"PARK TYPE" - DROPDOWN BUTTON 2-->
-        <div id="searchByParkType" class="row mt-2">
+        <div class="row mt-2">
 
             <div class="col">
-                <label for="selectParkType">Park Type:</label>
-                <select title="National Parks Dropdown" class="form-select" id="selectParkTypeDropdown" alt="parksdropdown">
-                    <option>Select the type of park you wish to visit</option>
+                
+                <select title="National Parks Dropdown" class="form-select" id="theParkTypesDropDown" alt="parksdropdown">
+                    <option>Select a park type</option>
                 </select>
             </div>
 
@@ -116,11 +115,11 @@
         that it may be retrieved from JavaScript.
                                                                             -->
     
-        <div id="nationalParksInfoCards" class="container">
+        <div id="cardContainer" class="container">
                       <!-- The card is in a container with the
                            ID tag of "nationalParksInfoCard" -->
                       
-        <div class="card" style="width: 18rem;"> 
+        <div id="nationalParksInfoCards" class="card" style="width: 18rem;"> 
                       <!-- This controls the sizing of the card -->
 
        <!-- <img id="parkImage" src="..." class="card-img-top" alt="Image of park"> -->
@@ -130,50 +129,9 @@
                       <!-- Below is all the elements inside the card
                            body -->
 
-          <h3 id="LocationName" class="LocationName">Park Title</h3>
-                      <!-- The first element is the TITLE of the park-->
-          
-          <p id="parkAddress" class="card-text">Quick summary text to build on the card title and make up the bulk of the card's content.</p>
-                      <!-- The second element is the ADDRESS in
-                           paragraph form-->
-
-         </div>
-                      <!-- Below this divide is an unordered list of
-                           elements -->
-
-        <ul class="list-group list-group-flush">
-                      <!-- The class in this unordered list has styling
-                           properties-->
-
-          <li id="parkLocationID" class="list-group-item">Location ID: ALBI</li>                 
-          <li id="parkPhone"      class="list-group-item">Phone: 000-000-0000</li>
-          <li id="parkFax"        class="list-group-item">Fax: 000-000-0000</li>
-          <li id="parkLatitude"   class="list-group-item">Latitude: 37.535671</li>
-          <li id="parkLongitude"  class="list-group-item">Longitude: -85.7340637</li>
-          <li id="parkLocation"   class="list-group-item">Location: coordinates:[-85.7340637, 37.53567], type: "Point"</li>
-                      <!-- These 5 lines of code are the list items in
-                           the unordered list -->
-
-        </ul>
-                      <!-- Unordered list closing tag -->
-
-        <div class="card-body">
-                      <!-- This is another divide in the card -->
-
-          <a href="#" class="card-link">View Park</a>
-          <a href="#" class="card-link">Add To Favorites</a>
-                      <!-- These are two links on the card. when 
-                           clicked they will take you to the specified
-                           href -->
-
         </div>
-                      <!-- Link section closing tag -->
-
         </div>
-                      <!-- full card closing tag -->
-
-        </div> 
-                      <!-- container closing tag -->
+        </div>
 
 
 

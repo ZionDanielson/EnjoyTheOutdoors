@@ -18,10 +18,6 @@ let selectedParkType = theParkTypesDropDown.value; // Selected Park Type (by use
 
 let nationalParksInfoCards = document.getElementById("nationalParksInfoCards"); // National Parks Info Card <div>
 
-let cardContainer = document.getElementById("cardContainer"); // Container for the National Park info cards
-
-
-
 /*_____________________________________________________________________________________________________________________________________*/
 
 
@@ -76,6 +72,7 @@ window.onload = function () {
     }
 }
 
+       console.log(`Page has finished loading`);
 
 /*_____________________________________________________________________________________________________________________________________*/
 
@@ -92,10 +89,9 @@ function addLocationsToTheDropdown() {
        theLocationsDropdown.appendChild(newLocationOption); // Adds new option (location) to Dropdown
 
     }
+}
 
-    console.log(`Locations are in the Dropdown`);
-
-} 
+       console.log(`Locations are in the Dropdown`); 
 
 /*_____________________________________________________________________________________________________________________________________*/
 
@@ -112,10 +108,9 @@ function addParksToTheDropdown() {
        theParkTypesDropDown.appendChild(newParkOption); // Adds new option (park type) to Dropdown
 
     }
-
-    console.log(`Park Types are in the Dropdown`);
-
 }
+
+       console.log(`Park Types are in the Dropdown`);
 
 /*_____________________________________________________________________________________________________________________________________*/
 
@@ -127,9 +122,9 @@ function hideParkTypeDropDown() {
 
       theParkTypesDropDown.style.display = "none";  // Hides Park Types Dropdown
 
-      console.log(`Park Types Dropdown is Hidden`);
-
 }
+
+      console.log(`Park Types Dropdown is Hidden`);
 
 /*_____________________________________________________________________________________________________________________________________*/
 
@@ -141,9 +136,9 @@ function showParkTypeDropDown() {
 
       theParkTypesDropDown.style.display = "block";  // Shows Park Types Dropdown
 
-      console.log(`Park Types Dropdown is Shown`);
-
     } 
+    
+      console.log(`Park Types Dropdown is Shown`);
     
 /*_____________________________________________________________________________________________________________________________________*/
 
@@ -154,17 +149,31 @@ function showParkTypeDropDown() {
 function hideNationalParkInfoCard() {
 
       nationalParksInfoCards.style.display = "none";  
-             
-      console.log(`National Parks Info Cards are Hidden`);
+                                                    
+}
 
-} 
+      console.log(`National Parks Info Cards are Hidden`); 
+
+/*_____________________________________________________________________________________________________________________________________*/
+
+
+// When initiated...                      ******** SHOW NATIONAL PARKS INFO CARDS ********
+
+
+function showNationalParkInfoCard() {
+
+      nationalParksInfoCards.style.display = "block"  
+                                               
+}
+
+      console.log(`National Parks Info Cards are Shown`);
 
 /*_____________________________________________________________________________________________________________________________________
 
 
 
 
-                                                   N  E  X  T  .  .  . F U N C T I O N S
+                                                         N  E  X  T  .  .  .
 
                                                       
 
@@ -181,7 +190,7 @@ function whenLocationIsChanged() {
         if (theLocationsDropdown.value !== "") {  // If a value is present...
 
         
-        //showParkTypeDropDown();  // show the Park Type Dropdown
+        showParkTypeDropDown();  // show the Park Type Dropdown
 
       
         const parks = nationalParksArray.filter(park => park.State === selectedLocation); // Find the parks that are in the location chosen
@@ -195,7 +204,7 @@ function whenLocationIsChanged() {
 // When Park Type Dropdown is Changed...     ******** FIND PARKS IN THE CHOSEN LOCATION ********
 
 
-        theParkTypesDropDown.onchange = function () {  // // When a Park Type is Selected...
+        selectParkTypeDropdown.onchange = function () {  // // When a Park Type is Selected...
              
             
         const selectedParkType = theParkTypesDropDown.value; // Converts selection => value
@@ -207,115 +216,103 @@ function whenLocationIsChanged() {
         console.log(nationalParks); // Shows all of the parks in that are in the location chosen and under the park type chosen in the console                                  
                    
 
-        if (nationalParks.length > 0) {
-
-            for (let thePark of nationalParks) {
-
-                newInfoCard(thePark);
+        createNationalParkInfoCard()
     }                
 
   }                                                                                                                      
         
 }
 
+
+
+        function createNationalParkInfoCard(){
+
+
+            if (nationalParks.length > 0) {
+
+                        for (let thePark of nationalParks) {
+                            createNationalParksInfoCard(thePark);}
+        
+
+
+        function createNationalParksInfoCard(thePark) { // This is the function
+                                                              // will build the card
+                                                              // in the HTML.
+
+           let divCol = document.createElement("div");        // <div
+           divCol.className = "col-4" ;                       // class="col-4"
+           infoDisplayArea.appendChild(divCol);               // adding "divCol"to HTML
+           
+           let divCard = document.createElement("div");       // <div class="card"
+           divCard.className = "card";                        // class="card"
+           divCard.style = "width: 18rem;"
+           divCol.appendChild(divCard);                       // adding "divCard" to HTML
+
+           let divCardBody = document.createElement("div");   // <div
+           divCardBody.className = card-body;                 // class="card-body"
+           divCard.appendChild(divCardBody);                  // adding "divCardBody" to
+                                                              // HTML
+                                      
+        
+           let h3Name = document.createElement("h5");
+           h3Name.className = "card-title";
+           h3Name.innerHTML = park.locationName;
+           divCardBody.appendChild(h3Name);
+
+           
+
+           let detailList = document.createElement("ul")
+           divCardBody.appendChild(detailList);
+
+
+           let liId = document.createElement("li");
+           liId.innerHTML = park.LocationID;
+           detailList.appendChild(liId);
+
+           let liAddress = document.createElement("li");
+           liAddress.innerHTML = park.Address;
+           detailList.appendChild(liAddress);
+
+           let liCity = document.createElement("li");
+           liCity.innerHTML = park.City;
+           detailList.appendChild(liCity);
+
+           let liState = document.createElement("li");
+           liState.innerHTML = park.State;
+           detailList.appendChild(liState);
+
+           let liZipCode = document.createElement("li");
+           liZipCode.innerHTML = park.ZipCodes;
+           detailList.appendChild(liZipCode);
+
+           let liPhone = document.createElement("li");
+           liPhone.innerHTML = park.Phone;
+           detailList.appendChild(liPhone);
+
+           let liFax = document.createElement("li");
+           liFax.innerHTML = park.Fax;
+           detailList.appendChild(liFax);
+
+           let liLatitude = document.createElement("li");
+           liLatitude.innerHTML = park.Latitude;
+           detailList.appendChild(liLatitude);
+
+           let liLongitude = document.createElement("li");
+           liLongitude.innerHTML = park.Longitude;
+           detailList.appendChild(liLongitude);
+
+           let liLocation = document.createElement("li");
+           liLocation.innerHTML = park.Location;
+           detailList.appendChild(liLocation);
+
+           showNationalParkInfoCard(); // This function initiates showing the national
+           // park info card
+
         }
-
-    }
-
-/*_____________________________________________________________________________________________________________________________________
-
-
-
-
-                                                 N  E  X  T  .  .  . C A R D   D I S P L A Y
-
-                                                      
-
-  _____________________________________________________________________________________________________________________________________*/
-
-  // When initiated...                     ******** FIND PARKS IN THE CHOSEN LOCATION ********
-
-
-  function newInfoCard(park) {
-    let divCol = document.createElement("div");
-    divCol.className = "col-4";
-    cardContainer.appendChild(divCol);
-  
-    let divCard = document.createElement("div");
-    divCard.className = "card";
-    divCard.style.width = "18rem";
-    divCol.appendChild(divCard);
-  
-    let divCardBody = document.createElement("div");
-    divCardBody.className = "card-body";
-    divCard.appendChild(divCardBody);
-  
-    let h3Name = document.createElement("h5");
-    h3Name.className = "card-title";
-    h3Name.innerHTML = park.LocationName;
-    divCardBody.appendChild(h3Name);
-  
-    let detailList = document.createElement("ul");
-    divCardBody.appendChild(detailList);
-  
-    let liId = document.createElement("li");
-    liId.innerHTML = park.LocationID;
-    detailList.appendChild(liId);
-  
-    let liAddress = document.createElement("li");
-    liAddress.innerHTML = park.Address;
-    detailList.appendChild(liAddress);
-  
-    let liCity = document.createElement("li");
-    liCity.innerHTML = park.City;
-    detailList.appendChild(liCity);
-  
-    let liState = document.createElement("li");
-    liState.innerHTML = park.State;
-    detailList.appendChild(liState);
-  
-    let liZipCode = document.createElement("li");
-    liZipCode.innerHTML = park.ZipCodes;
-    detailList.appendChild(liZipCode);
-  
-    let liPhone = document.createElement("li");
-    liPhone.innerHTML = park.Phone;
-    detailList.appendChild(liPhone);
-  
-    let liFax = document.createElement("li");
-    liFax.innerHTML = park.Fax;
-    detailList.appendChild(liFax);
-  
-    let liLatitude = document.createElement("li");
-    liLatitude.innerHTML = park.Latitude;
-    detailList.appendChild(liLatitude);
-  
-    let liLongitude = document.createElement("li");
-    liLongitude.innerHTML = park.Longitude;
-    detailList.appendChild(liLongitude);
-  
-    let liLocation = document.createElement("li");
-    liLocation.innerHTML = park.Location;
-    detailList.appendChild(liLocation);
-  
-    showNationalParkInfoCard(park); // This function initiates showing the national park info card
-  }
-  
+                        
+                       
+                      }
+                    }
             
-        console.log(`The National Park Info Card is displayed on the screen`);
-        
-        
-/*_____________________________________________________________________________________________________________________________________*/
-
-
-// When initiated...                      ******** SHOW NATIONAL PARKS INFO CARDS ********
-
-
-function showNationalParkInfoCard() {
-
-    nationalParksInfoCards.style.display = "block"  
- 
-    console.log(`National Parks Info Cards are Shown`);
-}
-
-console.log(`End`);
+                    console.log(`The National Park Info Card is displayed on the screen`);
+                
