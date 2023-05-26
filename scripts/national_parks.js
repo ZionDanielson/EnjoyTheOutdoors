@@ -33,23 +33,6 @@ let cardContainer = document.getElementById("cardContainer"); // Container for t
 
 /*_____________________________________________________________________________________________________________________________________*/
 
-                                                                                     
-                                                           /**********/
-
-
-// THE FOLLOWING VARIABLES VERE MADE GLOBAL FUNCTION BECAUSE I HAD TO KEEP REDECLARING THEM IN DIFFERENT FUNCTIONS:
-
-
-// const parks            = nationalParksArray.filter(park => park.State === selectedLocation);     // These are the parks in the state
-//                                                                                               // the user chose.
-
-
-// const nationalParks    = parks.filter(park => park.LocationName.includes(selectedParkType));  // These are the parks that are
-//                                                                                               // available in that state and park
-                                                                                              // type category.
-
-/*_____________________________________________________________________________________________________________________________________*/
-
 
 // When page loads...
 

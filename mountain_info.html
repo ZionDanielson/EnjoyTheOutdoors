@@ -28,7 +28,8 @@
           <!--NAV BAR LINKS/PAGES-->
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             <!--ADD LOGO RIGHT HERE-->
-            <li><a href="index.html" class="nav-link px-2"><img src="images/logo.png" alt="logo" style="width: 45%"></a></li>
+            <li><a href="index.html" class="nav-link px-2"><img src="images/logo.png" alt="logo" style="width: 45%"></a>
+            </li>
             <li><a href="index.html" class="nav-link px-4 mt-2 text-white fw-bold">HOME</a></li>
             <li><a href="national_parks.html" class="nav-link px-4 mt-2 text-white fw-bold">NATIONAL PARKS</a></li>
             <li><a href="mountain_info.html" class="nav-link px-4 mt-2 link-warning fw-bold">MOUNTAINS</a></li>
@@ -57,7 +58,7 @@
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center"> -->
 
       <!--EXPLORE BUTTON: Links to the National Parks Page-->
-      
+
     </div>
     </div>
     </div>
@@ -65,51 +66,40 @@
   </main>
 
 
-  <!--SECTION 1: Explore National Parks Picture, Action Info & Button-->
-  <section1>
+  <section class="container mt-2">
 
-    <div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-        <div class="col-10 col-sm-8 col-lg-6">
-          <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
-            height="500" loading="lazy">
-        </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
-          <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most
-            popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.</p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-          </div>
-        </div>
+    <!--"MOUNTAIN" - DROPDOWN BUTTON 1-->
+    <div class="row mt-2">
+
+      <div class="col">
+        <select title="Mountains Dropdown" class="form-select" id="theMountainsDropdown" alt="mountainsdropdown">
+          <option>Choose a mountain</option>
+        </select>
       </div>
+
     </div>
 
-  </section1>
+  </section>
 
 
   <!--SECTION 2: Our Mountains Picture, Action Info & Button-->
   <section2>
 
-    <div class="container col-xxl-8 px-4 py-5">
+    <div id="infoCardContainer" class="container col-xxl-8 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
         <div class="col-10 col-sm-8 col-lg-6">
-          <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700"
-            height="500" loading="lazy">
+          <!-- <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" -->
+            <!-- height="500" loading="lazy"> -->
         </div>
-        <div class="col-lg-6">
-          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Responsive left-aligned hero with image</h1>
-          <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most
-            popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system,
-            extensive prebuilt components, and powerful JavaScript plugins.</p>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-            <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+        <div id="mountainInfoCard" class="card col-lg-6" style="width: 18rem;">
+          <div class="card-body">
+            <!-- Below is all the elements inside the card
+                 body -->
+
           </div>
         </div>
       </div>
+    </div>
     </div>
 
   </section2>
@@ -120,8 +110,8 @@
     crossorigin="anonymous"></script>
 
   <script src="scripts/mountainData.js"></script>
+  <script src="scripts/mountains_info.js"></script>
 
-  <script src="mountains_info.js"></script>
 </body>
 
 </html>
